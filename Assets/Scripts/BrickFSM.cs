@@ -94,7 +94,7 @@ public class DraggingState : BrickState
         
         if (fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity.magnitude > maxSpeed)
         {
-
+            fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity = fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity * maxSpeed;
         }
 
         fsm.gameObject.transform.position = new Vector3(fsm.gameObject.transform.position.x, fsm.gameObject.transform.position.y, 10);
@@ -113,7 +113,7 @@ public class PlacedState : BrickState
     BrickFSM fsm;
 
     float timer = 0f;
-    float lockTimer = 0.25f;
+    float lockTimer = 0.5f;
     Rigidbody2D rb;
 
 
@@ -128,7 +128,7 @@ public class PlacedState : BrickState
         rb.gravityScale = 1f;
         rb.constraints = RigidbodyConstraints2D.None;
         fsm.gameObject.GetComponent<Collider2D>().excludeLayers = LayerMask.GetMask("Barrier");
-        
+
     }
 
     public void OnExit()

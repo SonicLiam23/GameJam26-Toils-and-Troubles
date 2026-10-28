@@ -28,4 +28,9 @@ public class GameManager : MonoBehaviour
             b.fsm.ChangeState(typeof(PlacedState));
         }
     }
+
+    public void DestroyBlock(GameObject gameObject)
+    {
+        Destroy(gameObject);
+    }
 }

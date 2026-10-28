@@ -8,7 +8,7 @@ public class Explode : MonoBehaviour
         {
             GameManager.Instance.UnlockAll();
 
-            foreach (Brick b in GameManager.Instance.Bricks)
+            foreach (BrickCore b in GameManager.Instance.Bricks)
             {
                 Vector2 vel = b.transform.position - transform.position;
                 b.rb.AddForce(vel * 5, ForceMode2D.Impulse);

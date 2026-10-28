@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     static public GameManager Instance { get; private set; }
 
-    public List<Brick> Bricks;
+    public List<BrickCore> Bricks;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void UnlockAll()
     {
-        foreach (Brick b in GameManager.Instance.Bricks)
+        foreach (BrickCore b in GameManager.Instance.Bricks)
         {
             b.fsm.ChangeState(typeof(PlacedState));
         }

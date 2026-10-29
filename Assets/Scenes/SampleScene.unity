@@ -253,8 +253,8 @@ Transform:
   m_GameObject: {fileID: 116065419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10.18, y: -0.93, z: 0}
-  m_LocalScale: {x: 28.57, y: 1, z: 1}
+  m_LocalPosition: {x: 9.7173, y: -0.93, z: 0}
+  m_LocalScale: {x: 28.57, y: 1.9253856, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1855476910}
@@ -435,7 +435,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d654ddeedaf66d944b3843e23470bfe4, type: 2}
+  m_Material: {fileID: 6200000, guid: a77260103fce7f34bbeb08045e422d7b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1060,8 +1060,8 @@ Transform:
   m_GameObject: {fileID: 692940616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -10.23, y: -1.59, z: 0}
-  m_LocalScale: {x: 28.57, y: 1, z: 1}
+  m_LocalPosition: {x: -9.7233, y: -1.59, z: 0}
+  m_LocalScale: {x: 28.57, y: 2.0135148, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1855476910}
@@ -1454,6 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c81593517805d24caed0e0f59d23017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickSpawner
+  CursedCount: 4
   brickPrefab: {fileID: 8321370126419251643, guid: 8e7f315cfc7807f41814bca00f5e3786, type: 3}
   sizes:
   - 1
@@ -1526,7 +1527,7 @@ Transform:
   m_GameObject: {fileID: 1808857092}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.4, y: 9.15, z: 0}
+  m_LocalPosition: {x: 9, y: 9, z: 0}
   m_LocalScale: {x: 6.780864, y: 12.386919, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

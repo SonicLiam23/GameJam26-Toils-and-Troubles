@@ -30,7 +30,10 @@ public class BrickSpawner : MonoBehaviour
     {
         cursedTypes = new()
         {
-            typeof(TeleportBrickCore)
+            typeof(TeleportBrickCore),
+            typeof(SpiningBrickCore),
+            typeof(ExpandingBrickCore),
+            typeof(GlowingBrickCore)
         };
 
         brickPot = new();

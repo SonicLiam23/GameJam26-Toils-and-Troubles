@@ -15,7 +15,6 @@ public class BrickSpawner : MonoBehaviour
     public int CursedCount = 4;
 
     public GameObject brickPrefab;
-    public float[] sizes;
 
     List<Type> cursedTypes;
 
@@ -30,7 +29,8 @@ public class BrickSpawner : MonoBehaviour
     {
         cursedTypes = new()
         {
-            typeof(TeleportBrickCore)
+            typeof(TeleportBrickCore),
+            typeof(WalkBrickCore)
         };
 
         brickPot = new();
@@ -81,8 +81,6 @@ public class BrickSpawner : MonoBehaviour
         if (type == BRICK_TYPE.CURSED) brick.AddComponent(cursedTypes[Random.Range(0, cursedTypes.Count)]);
         else brick.AddComponent<BrickCore>();
 
-        float size = sizes[Random.Range(0, sizes.Length)];
-        brick.transform.localScale = new Vector3(size * 1.5f, size, 0);
         brick.transform.position += new Vector3(0, 0, 10);
 
         return brick;

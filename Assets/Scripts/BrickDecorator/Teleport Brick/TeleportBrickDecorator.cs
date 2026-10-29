@@ -5,8 +5,8 @@ public class TeleportBrickDecorator : BrickDecorator
     public TeleportBrickDecorator(Brick decoratedBrick) : base(decoratedBrick)
     {}
 
-    float teleportTimer = 10f;
-
+    float teleportTimer = 3f;
+    bool activated = false;
 
     override public void ActivateCurse()
     {
@@ -20,7 +20,12 @@ public class TeleportBrickDecorator : BrickDecorator
         pos.y += 4;
         pos.x += Random.Range(-2f, 2f);
 
+        Color newColor = Core.Colour;
+        newColor.a = 1f;
+        Core.Colour = newColor;
+
         Core.transform.position = pos;
+        activated = true;
         
     }
 
@@ -35,12 +40,21 @@ public class TeleportBrickDecorator : BrickDecorator
     {
         decoratedBrick.UpdateCurse();
 
-        teleportTimer -= Time.deltaTime;
-
-        if (teleportTimer <= 0)
+        if (!Core.fsm.CompareCurrentState(typeof(DraggingState)))
         {
-            ActivateCurse();
-            teleportTimer = 30f;
+            teleportTimer -= Time.deltaTime;
+            if (!activated)
+            {
+                Color newColor = Core.Colour;
+                
+                newColor.a = Mathf.Lerp(0f, 1f, teleportTimer / 3f);
+                Core.Colour = newColor;
+
+                if (teleportTimer <= 0)
+                {
+                    ActivateCurse();
+                }
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +6,11 @@ public class GameManager : MonoBehaviour
     static public GameManager Instance { get; private set; }
 
     public List<BrickCore> Bricks;
+
+
+
+    // AS ALL DECORATORS ARE MADE THROUGH CODE, THERE ARE NO SCENE REFERENCES. SO. MAKE THEM HERE AND JUST ACCESS THEM WITH GameManager.Instance.VARIABLE;
+    public PhysicsMaterial2D icyPhysicsMat;
 
     private void Awake()
     {

@@ -8,10 +8,26 @@ public class BrickCore : MonoBehaviour
 
     public Brick brick;
 
+
+    public SpriteRenderer spriteRenderer;
+
+    public Color Colour
+    {
+        get
+        {
+            return spriteRenderer.color;
+        }
+        set
+        {
+            spriteRenderer.color = value;
+        }
+    }
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         fsm = GetComponent<BrickFSM>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         brick = new PlainBrick(this);
         GameManager.Instance.Bricks.Add(this);
     }

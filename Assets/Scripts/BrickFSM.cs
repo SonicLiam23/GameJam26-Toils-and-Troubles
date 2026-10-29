@@ -36,6 +36,11 @@ public class BrickFSM : MonoBehaviour
         currentState?.Update();   
     }
 
+    public bool CompareCurrentState(Type state)
+    {
+        return states[state] == currentState;
+    }
+
 
 
     // i hate this
@@ -70,6 +75,8 @@ public class DraggingState : BrickState
     float maxSpeed = 50f;
     float speed = 10f;
     BrickFSM fsm;
+
+    Rigidbody2D rb;
     public DraggingState(BrickFSM fsm)
     {
         this.fsm = fsm;
@@ -78,23 +85,24 @@ public class DraggingState : BrickState
     
     public void OnEnter()
     {
-        fsm.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
-        fsm.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb = fsm.gameObject.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void OnExit()
     {
-        fsm.gameObject.GetComponent<Rigidbody2D>().linearDamping = 0f;
+        rb.linearDamping = 0f;
     }
 
     public void Update()
     {
         Vector3 toMouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - fsm.gameObject.transform.position;
-        fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity = toMouseVector * speed;
+        rb.linearVelocity = toMouseVector * speed;
         
-        if (fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity = fsm.gameObject.GetComponent<Rigidbody2D>().linearVelocity * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
         fsm.gameObject.transform.position = new Vector3(fsm.gameObject.transform.position.x, fsm.gameObject.transform.position.y, 10);

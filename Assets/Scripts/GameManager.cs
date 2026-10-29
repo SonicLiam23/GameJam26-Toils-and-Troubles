@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (Brick b in GameManager.Instance.Bricks)
         {
+            if (b.fsm.CompareCurrentState(typeof(DraggingState))) continue;
+
             b.fsm.ChangeState(typeof(PlacedState));
         }
     }

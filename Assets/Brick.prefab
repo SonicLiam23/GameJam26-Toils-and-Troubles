@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3563460461076975187}
   - component: {fileID: -8051646727294029294}
   - component: {fileID: 4378785580213993712}
-  - component: {fileID: 154728959304057646}
+  - component: {fileID: 9068790786423503680}
   m_Layer: 8
   m_Name: Brick
   m_TagString: Untagged
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &154728959304057646
+--- !u!114 &9068790786423503680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321370126419251643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9047dd8b8867145b382675ebd41f88, type: 3}
+  m_Script: {fileID: 11500000, guid: 5605e0376db3ffe4f8743b3e60ecbaff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Brick
+  m_EditorClassIdentifier: Assembly-CSharp::ExampleBrickCore
   rb: {fileID: 0}
   fsm: {fileID: 0}

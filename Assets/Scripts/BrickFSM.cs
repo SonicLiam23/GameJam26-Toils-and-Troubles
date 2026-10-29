@@ -11,7 +11,7 @@ public class BrickFSM : MonoBehaviour
 
     private void Awake()
     {
-        states = new Dictionary<Type, BrickState>
+        states = new()
         {
             { typeof(DraggingState), new DraggingState(this) },
             { typeof(PlacedState), new PlacedState(this) },
@@ -29,6 +29,11 @@ public class BrickFSM : MonoBehaviour
         currentState?.OnExit();
         currentState = states[type];
         currentState.OnEnter();
+    }
+
+    public BrickState GetState()
+    {
+        return currentState;
     }
 
     private void Update()
@@ -132,6 +137,7 @@ public class PlacedState : BrickState
 
     public void OnEnter()
     {
+        timer = 0f;
         rb = fsm.gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1f;
         rb.constraints = RigidbodyConstraints2D.None;
@@ -159,7 +165,15 @@ public class PlacedState : BrickState
 
         if (timer > lockTimer)
         {
-            fsm.ChangeState(typeof(LockedState));
+            if (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 0f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 180f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 90f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 270f)) <= 5f)
+            {
+                fsm.ChangeState(typeof(LockedState));
+            }
+            else
+            {
+                GameManager.Instance.DestroyBlock(fsm.gameObject);
+                GameManager.Instance.UnlockAll();
+            }
         }
     }
 }

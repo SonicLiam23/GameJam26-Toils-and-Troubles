@@ -20,12 +20,14 @@ public class GameManager : MonoBehaviour
         Bricks = new();
     }
 
-
     public void UnlockAll()
     {
         foreach (BrickCore b in GameManager.Instance.Bricks)
         {
-            b.fsm.ChangeState(typeof(PlacedState));
+            if (b.fsm.GetState().GetType() != typeof(DraggingState))
+            {
+                b.fsm.ChangeState(typeof(PlacedState));
+            }
         }
     }
 

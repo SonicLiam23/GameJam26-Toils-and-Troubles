@@ -31,6 +31,11 @@ public class BrickFSM : MonoBehaviour
         currentState.OnEnter();
     }
 
+    public BrickState GetState()
+    {
+        return currentState;
+    }
+
     private void Update()
     {
         currentState?.Update();   

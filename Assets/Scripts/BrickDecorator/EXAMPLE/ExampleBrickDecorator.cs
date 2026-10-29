@@ -17,14 +17,10 @@ public class ExampleBrickDecorator : BrickDecorator
     override public void ApplyCurse()
     {
         decoratedBrick.ApplyCurse();
-
-        Debug.LogWarning("STARTED");
     }
 
     override public void UpdateCurse()
     {
         decoratedBrick.UpdateCurse();
-
-        Debug.Log("UPDATED CURSE!"); 
     }
 }

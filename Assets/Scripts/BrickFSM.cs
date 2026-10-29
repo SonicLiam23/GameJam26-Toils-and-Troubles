@@ -11,7 +11,7 @@ public class BrickFSM : MonoBehaviour
 
     private void Awake()
     {
-        states = new Dictionary<Type, BrickState>
+        states = new()
         {
             { typeof(DraggingState), new DraggingState(this) },
             { typeof(PlacedState), new PlacedState(this) },
@@ -124,6 +124,7 @@ public class PlacedState : BrickState
 
     public void OnEnter()
     {
+        timer = 0f;
         rb = fsm.gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1f;
         rb.constraints = RigidbodyConstraints2D.None;

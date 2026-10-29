@@ -1421,6 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c81593517805d24caed0e0f59d23017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickSpawner
+  CursedCount: 4
   brickPrefab: {fileID: 8321370126419251643, guid: 8e7f315cfc7807f41814bca00f5e3786, type: 3}
   sizes:
   - 1

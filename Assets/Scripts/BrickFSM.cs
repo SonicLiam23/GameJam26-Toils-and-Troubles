@@ -151,7 +151,15 @@ public class PlacedState : BrickState
 
         if (timer > lockTimer)
         {
-            fsm.ChangeState(typeof(LockedState));
+            if (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 0f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 180f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 90f)) <= 5f || Mathf.Abs(Mathf.DeltaAngle(rb.rotation, 270f)) <= 5f)
+            {
+                fsm.ChangeState(typeof(LockedState));
+            }
+            else
+            {
+                GameManager.Instance.DestroyBlock(fsm.gameObject);
+                GameManager.Instance.UnlockAll();
+            }
         }
     }
 }

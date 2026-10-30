@@ -36,6 +36,8 @@ public class BrickSpawner : MonoBehaviour
             typeof(WalkBrickCore),
             typeof(ScreamBrickCore),
             typeof(MagnetBrickCore),
+            typeof(ShrinkBrickCore),
+            typeof(IceBrickCore),
         };
 
         brickPot = new();
@@ -93,7 +95,7 @@ public class BrickSpawner : MonoBehaviour
         brickPot.RemoveAt(brickInd);
 
         if (type == BRICK_TYPE.CURSED) brick.AddComponent(cursedTypes[Random.Range(0, cursedTypes.Count)]);
-        else brick.AddComponent<MagnetBrickCore>();
+        else brick.AddComponent<BrickCore>();
 
         brick.transform.position += new Vector3(0, 0, 10);
 

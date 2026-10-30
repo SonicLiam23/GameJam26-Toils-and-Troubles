@@ -1,5 +1,3 @@
-using System.Drawing;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ExpandingBrickDecorator : BrickDecorator
@@ -7,24 +5,27 @@ public class ExpandingBrickDecorator : BrickDecorator
     // Must have line, replace ExampleBrickDecorator with your class name.
     public ExpandingBrickDecorator(Brick decoratedBrick) : base(decoratedBrick) { }
     float expandTimer = 10f;
+    float scale = 1f;
 
 
     // CURSE BEHAVIOUR, each of these is optional, but they MUST run decoratedBrick.FUNCTION().
+    bool activated = false;
 
     override public void ActivateCurse()
     {
         decoratedBrick.ActivateCurse();
+        activated = true;
 
-        if (Core.transform.localScale.x < 2)
-        {
-            Core.transform.localScale = new Vector3(Core.transform.localScale.x + 0.001f, Core.transform.localScale.y + 0.001f, 0);
-        }
+        GameManager.Instance.UnlockAll();
+        Core.transform.localScale *= 1.5f;
+
     }
 
     override public void ApplyCurse()
     {
         decoratedBrick.ApplyCurse();
         Debug.Log("Expanding Brick!");
+        Core.spriteRenderer.sprite = GameManager.Instance.Expanding;
     }
 
     override public void UpdateCurse()
@@ -33,10 +34,9 @@ public class ExpandingBrickDecorator : BrickDecorator
 
         expandTimer -= Time.deltaTime;
 
-        if (expandTimer <= 0)
+        if (!activated && expandTimer <= 0)
         {
             ActivateCurse();
-            expandTimer = 0.1f;
         }
     }
 }

@@ -20,6 +20,7 @@ public class WalkBrickDecorator : BrickDecorator
 
         Core.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
+        //Core.fsm.ChangeState("")
 
         GameManager.Instance.UnlockAll();
     }
@@ -45,7 +46,8 @@ public class WalkBrickDecorator : BrickDecorator
 
         if (activated)
         {
-            Core.rb.linearVelocityX = -2f;
+            Core.rb.linearVelocityX = -3f;
+            Core.rb.angularVelocity = 200f;
         }
     }
 }

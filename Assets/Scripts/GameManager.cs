@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
 
     // AS ALL DECORATORS ARE MADE THROUGH CODE, THERE ARE NO SCENE REFERENCES. SO. MAKE THEM HERE AND JUST ACCESS THEM WITH GameManager.Instance.VARIABLE;
     public PhysicsMaterial2D icyPhysicsMat;
+    public AudioClip ScreamSFX;
+
+    public Sprite ScreamingQuiet;
+    public Sprite ScreamingLoud;
+    public Sprite Glowing;
+    public Sprite Expanding;
+
 
     private void Awake()
     {

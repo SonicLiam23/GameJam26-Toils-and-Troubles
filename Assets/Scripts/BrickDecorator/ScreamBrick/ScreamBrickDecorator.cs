@@ -8,27 +8,28 @@ public class ScreamBrickDecorator : BrickDecorator
     float timer = 5f;
     bool activated = false;
 
+    AudioSource audio;
+
     override public void ActivateCurse()
     {
         decoratedBrick.ActivateCurse();
         activated = true;
-
-        Core.gameObject.layer = LayerMask.NameToLayer("Default");
-        Core.rb.excludeLayers = ~(1 << LayerMask.NameToLayer("Floor"));
-
-        Core.Colour = Color.yellow;
-
-        Core.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-
-
-        GameManager.Instance.UnlockAll();
+        audio.PlayOneShot(GameManager.Instance.ScreamSFX, 1f);
+        timer = 5.1f;
+        Core.spriteRenderer.sprite = GameManager.Instance.ScreamingLoud;
     }
 
     override public void ApplyCurse()
     {
+        if (audio == null) audio = Core.gameObject.AddComponent<AudioSource>();
+
         decoratedBrick.ApplyCurse();
 
-        Debug.Log("WalkBrick!");
+        Debug.Log("ScreamBrick!");
+
+        Core.spriteRenderer.sprite = GameManager.Instance.ScreamingQuiet;
+
+       
 
     }
 
@@ -45,7 +46,17 @@ public class ScreamBrickDecorator : BrickDecorator
 
         if (activated)
         {
-            Core.rb.linearVelocityX = -2f;
+            if (timer <= 0f) StopEffect();
         }
     }
+
+    public void StopEffect()
+    {
+        Core.spriteRenderer.sprite = GameManager.Instance.ScreamingQuiet;
+        activated = false;
+        audio.Stop();
+        timer = 20f;
+    }
+
+
 }

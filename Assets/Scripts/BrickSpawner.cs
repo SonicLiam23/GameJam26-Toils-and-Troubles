@@ -21,7 +21,7 @@ public class BrickSpawner : MonoBehaviour
     List<BRICK_TYPE> brickPot;
 
 
-
+    float brickTimer = 0.5f;
 
 
 
@@ -30,10 +30,12 @@ public class BrickSpawner : MonoBehaviour
         cursedTypes = new()
         {
             typeof(TeleportBrickCore),
-            typeof(SpiningBrickCore),
+            //typeof(SpiningBrickCore),
             typeof(ExpandingBrickCore),
             typeof(GlowingBrickCore),
-            typeof(WalkBrickCore)
+            typeof(WalkBrickCore),
+            typeof(ScreamBrickCore),
+            typeof(MagnetBrickCore),
         };
 
         brickPot = new();
@@ -45,7 +47,7 @@ public class BrickSpawner : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GetBrick().SetActive(true);
+            GetBrick()?.SetActive(true);
         }
     }
 
@@ -63,12 +65,21 @@ public class BrickSpawner : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        brickTimer -= Time.deltaTime;
+    }
+
     /// <summary>
     /// 
     /// </summary>
     /// <returns>A disabled brick object. Enable when ready to place into scene</returns>
     private GameObject GetBrick()
     {
+        if (brickTimer > 0f) return null;
+
+        brickTimer = 0.5f;
+
         GameObject brick = GameObject.Instantiate(brickPrefab, Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.rotation);
         brick.SetActive(false);
 
@@ -82,7 +93,7 @@ public class BrickSpawner : MonoBehaviour
         brickPot.RemoveAt(brickInd);
 
         if (type == BRICK_TYPE.CURSED) brick.AddComponent(cursedTypes[Random.Range(0, cursedTypes.Count)]);
-        else brick.AddComponent<BrickCore>();
+        else brick.AddComponent<MagnetBrickCore>();
 
         brick.transform.position += new Vector3(0, 0, 10);
 

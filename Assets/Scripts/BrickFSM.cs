@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 public class BrickFSM : MonoBehaviour
 {
-    Dictionary<Type, BrickState> states;
+    public Dictionary<Type, BrickState> states;
     BrickState currentState;
 
 
@@ -26,6 +26,8 @@ public class BrickFSM : MonoBehaviour
 
     public void ChangeState(Type type)
     {
+        if (!states.ContainsKey(type)) return;
+
         currentState?.OnExit();
         currentState = states[type];
         currentState.OnEnter();

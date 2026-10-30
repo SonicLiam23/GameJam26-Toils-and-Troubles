@@ -14,6 +14,7 @@ public class GlowingBrickDecorator : BrickDecorator
     {
         decoratedBrick.ApplyCurse();
         Debug.Log("Glowing Brick!");
+        Core.spriteRenderer.sprite = GameManager.Instance.Glowing;
     }
 
     override public void UpdateCurse()

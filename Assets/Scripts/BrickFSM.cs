@@ -47,26 +47,6 @@ public class BrickFSM : MonoBehaviour
     {
         return states[state] == currentState;
     }
-
-
-
-    // i hate this
-    public bool inSpawnArea = true;
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("SpawnArea")) 
-        {
-            inSpawnArea = false;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("SpawnArea"))
-        {
-            inSpawnArea = true;
-        }
-    }
 }
 
 
@@ -154,7 +134,7 @@ public class PlacedState : BrickState
 
     public void Update()
     {
-        if (!fsm.inSpawnArea && rb.linearVelocity.magnitude <= 0.1 && Mathf.Abs(rb.angularVelocity) <= 0.01)
+        if (rb.linearVelocity.magnitude <= 0.1 && Mathf.Abs(rb.angularVelocity) <= 0.01)
         {
             timer += Time.deltaTime;
         }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - SpawnArea
   - Magnet
+<<<<<<< HEAD
+=======
+  - Wall
+>>>>>>> b93243da71d490aea609b1ee20c29df104957090
   layers:
   - Default
   - TransparentFX

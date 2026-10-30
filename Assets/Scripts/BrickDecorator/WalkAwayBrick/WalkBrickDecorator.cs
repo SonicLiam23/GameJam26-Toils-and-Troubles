@@ -16,7 +16,7 @@ public class WalkBrickDecorator : BrickDecorator
         Core.gameObject.layer = LayerMask.NameToLayer("Default");
         Core.rb.excludeLayers = ~(1 << LayerMask.NameToLayer("Floor"));
 
-        Core.Colour = Color.yellow;
+        //Core.Colour = Color.yellow;
 
         Core.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
@@ -30,6 +30,8 @@ public class WalkBrickDecorator : BrickDecorator
         decoratedBrick.ApplyCurse();
 
         Debug.Log("WalkBrick!");
+
+        Core.spriteRenderer.sprite = GameManager.Instance.WalkingAway;
 
     }
 

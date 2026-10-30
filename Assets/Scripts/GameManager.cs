@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,10 +9,15 @@ public class GameManager : MonoBehaviour
     public List<BrickCore> Bricks;
 
 
-
     // AS ALL DECORATORS ARE MADE THROUGH CODE, THERE ARE NO SCENE REFERENCES. SO. MAKE THEM HERE AND JUST ACCESS THEM WITH GameManager.Instance.VARIABLE;
-    public PhysicsMaterial2D icyPhysicsMat;
     public AudioClip ScreamSFX;
+
+    public GameObject BrickLight;
+    public PhysicsMaterial2D IceMaterial;
+
+    public TextMeshProUGUI timer;
+    public float time;
+
     //fdjks
      
     public Sprite NormalBrick; 
@@ -19,6 +25,12 @@ public class GameManager : MonoBehaviour
     public Sprite ScreamingLoud;
     public Sprite Glowing;
     public Sprite Expanding;
+    public Sprite Ice;
+    public Sprite Magnet;
+    public Sprite Shrinking;
+    public Sprite WalkingAway;
+    public Sprite Spiral;
+    public Sprite Cement;
     public Sprite WalkingAway;
     public Sprite Spiral;
     public Sprite Cement;
@@ -50,5 +62,14 @@ public class GameManager : MonoBehaviour
     public void DestroyBlock(GameObject gameObject)
     {
         Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        timer.text = "Time Remaining " + (time -= Time.deltaTime);
+        if (time < 0)
+        {
+            Debug.Log("You Lose !!!");
+        }
     }
 }

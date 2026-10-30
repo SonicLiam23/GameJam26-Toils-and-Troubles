@@ -17,7 +17,7 @@ public class MagnetBrickDecorator : BrickDecorator
     override public void ApplyCurse()
     {
         decoratedBrick.ApplyCurse();
-
+        Core.spriteRenderer.sprite = GameManager.Instance.Magnet;
         Debug.Log("Magnet Brick!");
     }
 

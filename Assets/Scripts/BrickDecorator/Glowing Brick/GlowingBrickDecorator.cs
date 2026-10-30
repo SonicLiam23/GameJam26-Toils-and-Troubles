@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class GlowingBrickDecorator : BrickDecorator
 {
@@ -15,6 +16,7 @@ public class GlowingBrickDecorator : BrickDecorator
         decoratedBrick.ApplyCurse();
         Debug.Log("Glowing Brick!");
         Core.spriteRenderer.sprite = GameManager.Instance.Glowing;
+        GameObject.Instantiate(GameManager.Instance.BrickLight, Core.transform);
     }
 
     override public void UpdateCurse()

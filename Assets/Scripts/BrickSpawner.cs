@@ -36,6 +36,8 @@ public class BrickSpawner : MonoBehaviour
             typeof(WalkBrickCore),
             typeof(ScreamBrickCore),
             typeof(MagnetBrickCore),
+            typeof(ShrinkBrickCore),
+            typeof(IceBrickCore),
             typeof(CementBrickCore),
             typeof(CementBrickCore),
         };

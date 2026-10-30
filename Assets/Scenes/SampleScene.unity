@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 116065423}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &298973895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 402982786}
   m_Layer: 0
   m_Name: Cieling
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 429083591}
   m_Layer: 9
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 692940617}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1111,10 +1111,14 @@ MonoBehaviour:
   Bricks: []
   icyPhysicsMat: {fileID: 0}
   ScreamSFX: {fileID: 8300000, guid: 8ed31131093580947bc261eb4cf7d25f, type: 3}
+  NormalBrick: {fileID: 5470014284936662101, guid: 98b696b717333f1448a7d3ea19b9e5cf, type: 3}
   ScreamingQuiet: {fileID: 4068638726482094240, guid: bacb52ae0f718c84bbed818f128eb99e, type: 3}
   ScreamingLoud: {fileID: 4007964339106873753, guid: 5f3767e1d06dbf94c9795a36af976993, type: 3}
   Glowing: {fileID: 5957660037523050905, guid: 505e8d1125ccc2d44b89b3f39c8eee7c, type: 3}
   Expanding: {fileID: -5574482729402110730, guid: 610a40fa96d84234892ed007ddfd160b, type: 3}
+  WalkingAway: {fileID: 8484163757572472613, guid: 92fab93af50b89f40bf40b3483ae1db4, type: 3}
+  Spiral: {fileID: 3737977858633307642, guid: ef944d56d170b5e45a438bd215ee19a7, type: 3}
+  Cement: {fileID: 518479093104374633, guid: cbd2a5ed60772f64a9b730efd1fc8423, type: 3}
 --- !u!4 &702460229
 Transform:
   m_ObjectHideFlags: 0
@@ -1454,7 +1458,7 @@ GameObject:
   - component: {fileID: 1727638066}
   m_Layer: 0
   m_Name: Scene_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1548,7 +1552,7 @@ GameObject:
   - component: {fileID: 1808857096}
   m_Layer: 0
   m_Name: SpawnZone
-  m_TagString: SpawnArea
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

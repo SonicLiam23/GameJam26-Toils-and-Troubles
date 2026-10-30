@@ -26,12 +26,16 @@ public class TeleportBrickDecorator : BrickDecorator
 
         Core.transform.position = pos;
         activated = true;
+
+        Core.spriteRenderer.sprite = GameManager.Instance.NormalBrick;
         
     }
 
     override public void ApplyCurse()
     {
         decoratedBrick.ApplyCurse();
+
+        Core.spriteRenderer.sprite = GameManager.Instance.Spiral;
 
         Debug.Log("Teleport Brick!");
     }

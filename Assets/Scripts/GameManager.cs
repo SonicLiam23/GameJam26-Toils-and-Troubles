@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,7 +17,9 @@ public class GameManager : MonoBehaviour
     public PhysicsMaterial2D IceMaterial;
 
     public TextMeshProUGUI timer;
+    public TextMeshProUGUI dialogue;
     public float time;
+    public List<string> dialogueList;
 
     //fdjks
      
@@ -28,9 +31,6 @@ public class GameManager : MonoBehaviour
     public Sprite Ice;
     public Sprite Magnet;
     public Sprite Shrinking;
-    public Sprite WalkingAway;
-    public Sprite Spiral;
-    public Sprite Cement;
     public Sprite WalkingAway;
     public Sprite Spiral;
     public Sprite Cement;
@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
         }
 
         Bricks = new();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(DialogueChange());
     }
 
 
@@ -71,5 +76,13 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You Lose !!!");
         }
+    }
+
+    IEnumerator DialogueChange()
+    {
+        yield return new WaitForSeconds(20f);
+
+        dialogue.text = dialogueList[Random.Range(0, dialogueList.Count)];
+
     }
 }

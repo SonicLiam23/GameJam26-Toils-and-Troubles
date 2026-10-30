@@ -32,8 +32,7 @@ public class BrickSpawner : MonoBehaviour
             typeof(TeleportBrickCore),
             typeof(SpiningBrickCore),
             typeof(ExpandingBrickCore),
-            typeof(GlowingBrickCore)
-            typeof(TeleportBrickCore),
+            typeof(GlowingBrickCore),
             typeof(WalkBrickCore)
         };
 

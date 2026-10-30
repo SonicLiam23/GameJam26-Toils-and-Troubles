@@ -36,13 +36,10 @@ public class BrickSpawner : MonoBehaviour
             typeof(WalkBrickCore),
             typeof(ScreamBrickCore),
             typeof(MagnetBrickCore),
-<<<<<<< HEAD
             typeof(ShrinkBrickCore),
             typeof(IceBrickCore),
-=======
             typeof(CementBrickCore),
             typeof(CementBrickCore),
->>>>>>> b93243da71d490aea609b1ee20c29df104957090
         };
 
         brickPot = new();

@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     // AS ALL DECORATORS ARE MADE THROUGH CODE, THERE ARE NO SCENE REFERENCES. SO. MAKE THEM HERE AND JUST ACCESS THEM WITH GameManager.Instance.VARIABLE;
     public AudioClip ScreamSFX;
-<<<<<<< HEAD
 
     public GameObject BrickLight;
     public PhysicsMaterial2D IceMaterial;
@@ -19,24 +18,22 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timer;
     public float time;
 
-=======
     //fdjks
      
     public Sprite NormalBrick; 
->>>>>>> b93243da71d490aea609b1ee20c29df104957090
     public Sprite ScreamingQuiet;
     public Sprite ScreamingLoud;
     public Sprite Glowing;
     public Sprite Expanding;
-<<<<<<< HEAD
     public Sprite Ice;
     public Sprite Magnet;
     public Sprite Shrinking;
-=======
     public Sprite WalkingAway;
     public Sprite Spiral;
     public Sprite Cement;
->>>>>>> b93243da71d490aea609b1ee20c29df104957090
+    public Sprite WalkingAway;
+    public Sprite Spiral;
+    public Sprite Cement;
 
 
     private void Awake()
